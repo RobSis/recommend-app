@@ -5,13 +5,8 @@ datasource:
 model:
     nodeType: mgnl:recommendation
     properties:
-    - name: title
+    - name: name
       label: Title
-      type: String
-      required: true
-
-    - name: user
-      label: User
       type: String
       required: true
 
@@ -20,14 +15,25 @@ model:
       type: asset
       required: true
 
+    - name: description
+      label: Description
+      type: richText
+      required: true
+
     - name: type
       label: Type
       type: reference:type
       required: true
 
-    - name: description
-      label: Description
-      type: richText
+    - name: genre
+      label: Genre
+      type: reference:genre
+      multiple: true
+      required: true
+
+    - name: user
+      label: User
+      type: String
       required: true
 
     - name: rating
