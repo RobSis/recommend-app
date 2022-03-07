@@ -1,5 +1,0 @@
-class: info.magnolia.rest.delivery.jcr.v2.JcrDeliveryEndpointDefinition
-workspace: comments
-depth: 1
-nodeTypes:
-  - mgnl:comment

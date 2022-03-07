@@ -43,5 +43,22 @@ model:
 
     - name: comments
       label: Comments
-      type: reference:comment
+      type: comment
       multiple: true
+
+    subModels:
+      - name: comment
+        properties:
+          - name: name
+            label: User
+            type: String
+            required: true
+
+          - name: rating
+            label: Rating
+            type: Decimal
+            required: true
+
+          - name: comment
+            label: Comment
+            type: richText
