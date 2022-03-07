@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { Typography, Grid, Container } from '@mui/material';
-import { TopBar, Teaser } from '../components';
+import { Grid, Container, Typography } from '@mui/material';
+import TopBar from '../components/TopBar';
+import Teaser from '../components/Teaser';
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
