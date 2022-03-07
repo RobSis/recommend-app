@@ -1,0 +1,35 @@
+'recommend':
+  'hideInNav': false
+  'jcr:primaryType': 'mgnl:page'
+  'jcr:uuid': '3fdf35bc-a410-438e-8da1-c4c424dae5ab'
+  'mgnl:created': 2022-03-07T13:34:40.675+01:00
+  'mgnl:createdBy': 'superuser'
+  'mgnl:lastModified': 2022-03-07T16:31:58.022+01:00
+  'mgnl:lastModifiedBy': 'superuser'
+  'mgnl:template': 'recommend-lm:pages/basic'
+  'title': 'Latest Reviews'
+  'detail':
+    'hideInNav': false
+    'jcr:primaryType': 'mgnl:page'
+    'jcr:uuid': 'f017c0f8-b4fb-4d37-9f42-222699ae1cef'
+    'mgnl:created': 2022-03-07T16:25:36.416+01:00
+    'mgnl:createdBy': 'superuser'
+    'mgnl:lastModified': 2022-03-07T16:25:36.417+01:00
+    'mgnl:lastModifiedBy': 'superuser'
+    'mgnl:template': 'recommend-lm:pages/basic'
+    'title': 'Review detail'
+  'main':
+    'jcr:primaryType': 'mgnl:area'
+    'jcr:uuid': '7abf28d1-f39e-44af-bb51-b4e15f8d495f'
+    'mgnl:created': 2022-03-07T16:28:47.253+01:00
+    'mgnl:createdBy': 'superuser'
+    'mgnl:lastModified': 2022-03-07T16:31:58.022+01:00
+    'mgnl:lastModifiedBy': 'superuser'
+    '0':
+      'jcr:primaryType': 'mgnl:component'
+      'jcr:uuid': 'a4dea857-4425-40a6-9f9b-c71ee610d525'
+      'mgnl:created': 2022-03-07T16:31:58.023+01:00
+      'mgnl:createdBy': 'superuser'
+      'mgnl:lastModified': 2022-03-07T16:31:58.023+01:00
+      'mgnl:lastModifiedBy': 'superuser'
+      'mgnl:template': 'recommend-lm:components/reviewgrid'
