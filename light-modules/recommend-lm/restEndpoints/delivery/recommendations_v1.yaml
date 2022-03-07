@@ -1,6 +1,6 @@
 class: info.magnolia.rest.delivery.jcr.v2.JcrDeliveryEndpointDefinition
 workspace: recommendations
-depth: 1
+depth: 2
 nodeTypes:
   - mgnl:recommendation
 
