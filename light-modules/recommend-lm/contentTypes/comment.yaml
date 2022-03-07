@@ -1,0 +1,20 @@
+datasource:
+    workspace: comments
+    autoCreate: true
+
+model:
+    nodeType: mgnl:comment
+    properties:
+    - name: name
+      label: User
+      type: String
+      required: true
+
+    - name: rating
+      label: Rating
+      type: Decimal
+      required: true
+
+    - name: comment
+      label: Comment
+      type: richText

@@ -25,7 +25,7 @@ model:
       type: reference:type
       required: true
 
-    - name: genre
+    - name: genres
       label: Genre
       type: reference:genre
       multiple: true
@@ -40,3 +40,8 @@ model:
       label: Rating
       type: Decimal
       required: true
+
+    - name: comments
+      label: Comments
+      type: reference:comment
+      multiple: true
