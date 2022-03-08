@@ -4,6 +4,20 @@ const MEDIA_TYPES_URL = HOST + '/.rest/delivery/types/v1';
 
 const RECOMMENDATIONS_BY_TYPE_URL = HOST + '/.rest/delivery/recommendations/v1';
 
+export const mediaTypes = async (dataCallback) => {
+  try {
+    const types = await fetch(MEDIA_TYPES_URL).then(res => res.json());
+    if (!types.results) {
+      console.error("There are no media types configured");
+      dataCallback([])
+    } else {
+      dataCallback(types.results);
+    }
+  } catch (error) {
+    console.error("Request error", error);
+  }
+};
+
 export const mediaTypeByName = async (type, dataCallback) => {
   try {
     const mediaTypes = await fetch(MEDIA_TYPES_URL + '?name=' + type).then(res => res.json());
