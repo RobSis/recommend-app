@@ -24,10 +24,33 @@
     'jcr:uuid': '6be93c40-9ecb-4c38-be45-661c6b21f3bf'
     'mgnl:created': 2022-03-08T10:21:16.114+01:00
     'mgnl:createdBy': 'superuser'
-    'mgnl:lastModified': 2022-03-08T10:21:20.489+01:00
+    'mgnl:lastModified': 2022-03-08T11:00:13.386+01:00
     'mgnl:lastModifiedBy': 'superuser'
     'mgnl:template': 'recommend-lm:pages/basic'
     'title': 'Media type detail'
+    'main':
+      'jcr:primaryType': 'mgnl:area'
+      'jcr:uuid': '6d806e5f-2c6f-4a50-b8b6-774755f5406d'
+      'mgnl:created': 2022-03-08T10:59:41.656+01:00
+      'mgnl:createdBy': 'superuser'
+      'mgnl:lastModified': 2022-03-08T11:00:13.386+01:00
+      'mgnl:lastModifiedBy': 'superuser'
+      '0':
+        'jcr:primaryType': 'mgnl:component'
+        'jcr:uuid': 'c7189b93-fc42-46e2-a870-d60ea3aeb019'
+        'mgnl:created': 2022-03-08T10:59:41.666+01:00
+        'mgnl:createdBy': 'superuser'
+        'mgnl:lastModified': 2022-03-08T10:59:41.666+01:00
+        'mgnl:lastModifiedBy': 'superuser'
+        'mgnl:template': 'recommend-lm:components/mediaTypeData'
+      '00':
+        'jcr:primaryType': 'mgnl:component'
+        'jcr:uuid': 'cb3147df-68e4-4018-b3be-7e032d34b4b6'
+        'mgnl:created': 2022-03-08T11:00:13.387+01:00
+        'mgnl:createdBy': 'superuser'
+        'mgnl:lastModified': 2022-03-08T11:00:13.387+01:00
+        'mgnl:lastModifiedBy': 'superuser'
+        'mgnl:template': 'recommend-lm:components/mediaTypeList'
   'main':
     'jcr:primaryType': 'mgnl:area'
     'jcr:uuid': '7abf28d1-f39e-44af-bb51-b4e15f8d495f'
