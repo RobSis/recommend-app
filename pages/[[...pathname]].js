@@ -4,6 +4,8 @@ import { languages, getCurrentLanguage } from '../utils';
 import Basic from '../templates/pages/Basic';
 import ReviewGrid from '../templates/components/ReviewGrid';
 import SearchResults from '../templates/components/search/SearchResults';
+import MediaTypeData from '../templates/components/MediaTypeData';
+import MediaTypeList from '../templates/components/MediaTypeList';
 
 const nodeName = '/recommend';
 const config = {
@@ -11,6 +13,8 @@ const config = {
     'recommend-lm:pages/basic': Basic,
     'recommend-lm:components/reviewgrid': ReviewGrid,
     'recommend-lm:components/search/results': SearchResults,
+    'recommend-lm:components/mediaTypeData': MediaTypeData,
+    'recommend-lm:components/mediaTypeList': MediaTypeList,
   },
 };
 

@@ -13,3 +13,7 @@ areas:
         id: recommend-lm:components/reviewgrid
       searchResults:
         id: recommend-lm:components/search/results
+      mediaTypeData:
+        id: recommend-lm:components/mediaTypeData
+      mediaTypeList:
+        id: recommend-lm:components/mediaTypeList
