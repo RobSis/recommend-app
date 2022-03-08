@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { recommendationsByTypeData } from "../../src/api";
-
+import ReviewGrid from "./ReviewGrid";
 
 export default function MediaTypeList() {
   const [recommendations, setRecommendations] = useState([]);
@@ -11,8 +11,7 @@ export default function MediaTypeList() {
   }, []);
 
   return (
-    <>
-    </>
+    <ReviewGrid recommendations={recommendations} />
   );
 
 }
