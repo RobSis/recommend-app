@@ -18,7 +18,10 @@ export const InputDropdown = ({ name, control, label, options }) => {
       <label>{label}</label>
       <Controller
         render={({ field: { onChange, value } }) => (
-          <Select onChange={onChange} value={value}>
+          <Select
+            value={value}
+            onChange={onChange}
+          >
             {generateSingleOptions()}
           </Select>
         )}

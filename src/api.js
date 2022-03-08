@@ -1,34 +1,40 @@
 const HOST = 'https://author-onehob4efwibvpms.saas.magnolia-cloud.com';
 
+const GENRES_URL = HOST + '/.rest/delivery/genres/v1';
 const MEDIA_TYPES_URL = HOST + '/.rest/delivery/types/v1';
-
 const RECOMMENDATIONS_BY_TYPE_URL = HOST + '/.rest/delivery/recommendations/v1';
 
-export const mediaTypes = async (dataCallback) => {
+const listEntities = async (url, dataCallback) => {
   try {
-    const types = await fetch(MEDIA_TYPES_URL).then(res => res.json());
-    if (!types.results) {
-      console.error("There are no media types configured");
+    const list = await fetch(url).then(res => res.json());
+    if (!list.results) {
+      console.error("There are results");
       dataCallback([])
     } else {
-      dataCallback(types.results);
+      dataCallback(list.results);
     }
   } catch (error) {
     console.error("Request error", error);
   }
 };
 
-export const mediaTypeByName = async (type, dataCallback) => {
-  try {
-    const mediaTypes = await fetch(MEDIA_TYPES_URL + '?name=' + type).then(res => res.json());
-    if (!mediaTypes.results || mediaTypes.results.length !== 1) {
+export const genres = (dataCallback) => {
+  listEntities(GENRES_URL, dataCallback);
+};
+
+export const mediaTypes = (dataCallback) => {
+  listEntities(MEDIA_TYPES_URL, dataCallback);
+};
+
+export const mediaTypeByName = (type, dataCallback) => {
+  listEntities(MEDIA_TYPES_URL + '?name=' + type, (list) => {
+    if (!list || list.length !== 1) {
       console.error("Media type not found or multiple media types found");
     } else {
-      dataCallback(mediaTypes.results[0]);
+      dataCallback(list[0]);
     }
-  } catch (error) {
-    console.error("Request error", error);
-  }
+
+  });
 };
 
 export const recommendationsByTypeData = async (type, dataCallback) => {
