@@ -52,7 +52,7 @@ export default function Genre() {
             </Typography>
             {recommendations && recommendations.length > 0 ? (
                 recommendations.map((item, index) => {
-                    return <Link key={index} href="#">
+                    return <Link key={index} href={"/detail?id=" + item['@id']}>
                         {item.name}
                     </Link>
                 })
