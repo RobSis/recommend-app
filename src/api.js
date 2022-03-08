@@ -1,8 +1,8 @@
-const MEDIA_TYPES_URL = 'https://author-onehob4efwibvpms.saas.magnolia-cloud.com/.rest/delivery/types/v1';
+const HOST = 'https://author-onehob4efwibvpms.saas.magnolia-cloud.com';
 
-const RECOMMENDATIONS_BY_TYPE_URL = 'https://author-onehob4efwibvpms.saas.magnolia-cloud.com/.rest/delivery/recommendations/v1';
+const MEDIA_TYPES_URL = HOST + '/.rest/delivery/types/v1';
 
-//https://author-onehob4efwibvpms.saas.magnolia-cloud.com/.rest/delivery/recommendations/v1?type=2dce6e0a-406e-45be-9f45-915416f523c6
+const RECOMMENDATIONS_BY_TYPE_URL = HOST + '/.rest/delivery/recommendations/v1';
 
 export const mediaTypeByName = async (type, dataCallback) => {
   try {
