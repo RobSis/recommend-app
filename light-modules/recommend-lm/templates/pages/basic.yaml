@@ -2,7 +2,7 @@ class: info.magnolia.rendering.spa.renderer.SpaRenderableDefinition
 visible: true
 baseUrl: http://localhost:3000/
 routeTemplate: '{{@path}}'
-dialog: mte:pages/pageProperties
+# dialog: mte:pages/pageProperties
 title: 'Recommend: Basic'
 
 areas:
