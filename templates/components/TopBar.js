@@ -1,8 +1,10 @@
 import * as React from 'react';
-import { styled, alpha } from '@mui/material/styles';
-import { Typography, AppBar, Toolbar, InputBase, Box } from '@mui/material';
+import {useState} from 'react';
+import {alpha, styled} from '@mui/material/styles';
+import {AppBar, Box, InputBase, Toolbar, Typography} from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import SearchIcon from '@mui/icons-material/Search';
+import {setURLSearchParams} from "../../utils";
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -47,6 +49,19 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function TopBar() {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const onKeyDown = (e) => {
+    if (e.key === "Enter") {
+      window.location.href = setURLSearchParams("http://localhost:3000/search-results", `q=${searchTerm}`);
+    }
+  }
+
+  const onSearchTermChange = (e) => {
+    const value = e.target.value
+    setSearchTerm(value);
+  }
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -62,6 +77,9 @@ export default function TopBar() {
             <StyledInputBase
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
+              onKeyDown={onKeyDown}
+              onChange={onSearchTermChange}
+              value={searchTerm}
             />
           </Search>
         </Toolbar>
