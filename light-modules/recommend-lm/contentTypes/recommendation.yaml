@@ -13,7 +13,6 @@ model:
     - name: image
       label: Image
       type: asset
-      required: true
 
     - name: description
       label: Description
@@ -30,6 +29,10 @@ model:
       type: reference:genre
       multiple: true
       required: true
+
+    - name: link
+      label: Link
+      type: String
 
     - name: user
       label: User

@@ -13,4 +13,3 @@ model:
     - name: icon
       label: Icon
       type: asset
-      required: true
