@@ -3,12 +3,14 @@ import { EditablePage } from '@magnolia/react-editor';
 import { languages, getCurrentLanguage } from '../utils';
 import Basic from '../templates/pages/Basic';
 import ReviewGrid from '../templates/components/ReviewGrid';
+import SearchResults from '../templates/components/search/SearchResults';
 
 const nodeName = '/recommend';
 const config = {
   componentMappings: {
     'recommend-lm:pages/basic': Basic,
     'recommend-lm:components/reviewgrid': ReviewGrid,
+    'recommend-lm:components/search/results': SearchResults,
   },
 };
 

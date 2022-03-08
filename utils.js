@@ -13,3 +13,10 @@ export function getCurrentLanguage(url) {
 export function setURLSearchParams(url, param) {
   return url + (url.indexOf('?') > -1 ? '&' : '?') + param;
 }
+
+export function createMarkup(html) {
+  if (html.length > 300) {
+    html = html.substr(0, 300) + " &hellip;";
+  }
+  return { __html: html };
+}

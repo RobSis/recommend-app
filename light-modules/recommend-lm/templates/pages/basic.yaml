@@ -11,3 +11,5 @@ areas:
     availableComponents:
       title:
         id: recommend-lm:components/reviewgrid
+      searchResults:
+        id: recommend-lm:components/search/results
