@@ -6,7 +6,7 @@ export default function ReviewGrid(props) {
   const {recommendations} = props;
   return (
     <Grid container spacing={4}>
-      {recommendations.map((recommendation) => (
+      {recommendations && recommendations.map((recommendation) => (
         <Grid item key={recommendation} xs={12} sm={6} md={4}>
           <Teaser />
         </Grid>
