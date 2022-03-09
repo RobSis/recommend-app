@@ -4,7 +4,7 @@
   'jcr:uuid': '3fdf35bc-a410-438e-8da1-c4c424dae5ab'
   'mgnl:created': 2022-03-07T13:34:40.675+01:00
   'mgnl:createdBy': 'superuser'
-  'mgnl:lastModified': 2022-03-07T16:31:58.022+01:00
+  'mgnl:lastModified': 2022-03-09T14:36:42.315+01:00
   'mgnl:lastModifiedBy': 'superuser'
   'mgnl:template': 'recommend-lm:pages/basic'
   'title': 'Latest Reviews'
@@ -82,13 +82,28 @@
     'jcr:uuid': '7abf28d1-f39e-44af-bb51-b4e15f8d495f'
     'mgnl:created': 2022-03-07T16:28:47.253+01:00
     'mgnl:createdBy': 'superuser'
-    'mgnl:lastModified': 2022-03-07T16:31:58.022+01:00
+    'mgnl:lastModified': 2022-03-09T14:36:42.315+01:00
     'mgnl:lastModifiedBy': 'superuser'
     '0':
+      'description': '<p>Reviews and recommendations from Magnolians.</p>
+
+        '
       'jcr:primaryType': 'mgnl:component'
-      'jcr:uuid': 'a4dea857-4425-40a6-9f9b-c71ee610d525'
-      'mgnl:created': 2022-03-07T16:31:58.023+01:00
+      'jcr:uuid': '1e90aea0-4e2c-4489-adad-0e4bca19404c'
+      'mgnl:created': 2022-03-09T14:36:11.918+01:00
       'mgnl:createdBy': 'superuser'
-      'mgnl:lastModified': 2022-03-07T16:31:58.023+01:00
+      'mgnl:lastModified': 2022-03-09T14:36:11.918+01:00
       'mgnl:lastModifiedBy': 'superuser'
-      'mgnl:template': 'recommend-lm:components/reviewgrid'
+      'mgnl:template': 'recommend-lm:components/hero'
+      'title': 'May We Recommend'
+    '00':
+      'jcr:primaryType': 'mgnl:component'
+      'jcr:uuid': '0de52941-719f-40a8-94fa-3777b6f56779'
+      'limit': 3
+      'mgnl:created': 2022-03-09T14:36:50.481+01:00
+      'mgnl:createdBy': 'superuser'
+      'mgnl:lastModified': 2022-03-09T14:36:50.481+01:00
+      'mgnl:lastModifiedBy': 'superuser'
+      'mgnl:template': 'recommend-lm:components/latest'
+      'title': 'Latest in Books'
+      'type': 'efb51325-ba58-476c-b602-a1da5cea3b44'
