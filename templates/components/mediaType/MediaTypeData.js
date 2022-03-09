@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
+import { CardContent, Card, CardMedia } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import { mediaTypeByName } from "../../../src/api";
 
@@ -21,12 +19,11 @@ export default function MediaTypeData() {
           <Typography gutterBottom variant="h5" component="div">
             {mediaType.name}
           </Typography>
+          {mediaTypeLogo && <CardMedia>
+            <img src={mediaTypeLogo} alt={mediaType.name} style={{ height: 150 }} />
+          </CardMedia>
+          }
         </CardContent>
-        {mediaTypeLogo && <CardMedia
-          component="img"
-          image={mediaTypeLogo}
-          alt={mediaType.name}
-        />}
       </Card>
         : <div>Media type not found: {query.type}</div>}
     </>

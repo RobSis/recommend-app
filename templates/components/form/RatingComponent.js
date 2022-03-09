@@ -13,7 +13,7 @@ export const RatingComponent = ({ name, control, label }) => {
                 <div>
                     <Rating
                         onChange={onChange}
-                        value={value ? value : ''}
+                        value={value ? value : 0}
                         label={label}
                         precision={0.5}
                     />

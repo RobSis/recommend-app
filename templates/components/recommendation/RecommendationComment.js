@@ -1,11 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { useTheme } from '@mui/material/styles';
-import { genres, mediaTypes } from "../../../src/api";
-import { Button, FormControl, InputLabel, Select, OutlinedInput, MenuItem, Box, Chip } from "@mui/material";
-import { useForm } from "react-hook-form";
+import React from "react";
 import { InputText } from "../form/InputText";
 import { InputTextarea } from "../form/InputTextarea";
-import { InputDropdown } from "../form/InputDropdown";
 import { RatingComponent } from "../form/RatingComponent";
 
 

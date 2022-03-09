@@ -105,7 +105,7 @@ export default function RecommendationData() {
             <Select
               labelId="genres-label"
               id="genres"
-              multiple
+              multiple={true}
               value={genresList}
               onChange={handleGenresChange}
               input={<OutlinedInput id="select-multiple-chip" label="Chip" />}

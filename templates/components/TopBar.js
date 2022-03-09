@@ -1,10 +1,15 @@
 import * as React from 'react';
-import {useState} from 'react';
-import {alpha, styled} from '@mui/material/styles';
-import {AppBar, Box, InputBase, Toolbar, Typography} from '@mui/material';
+import { useState } from 'react';
+import { alpha, styled } from '@mui/material/styles';
+import { AppBar, Box, InputBase, Toolbar, Typography, Button } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import SearchIcon from '@mui/icons-material/Search';
-import {setURLSearchParams} from "../../utils";
+import { setURLSearchParams } from "../../utils";
+import { useRouter } from 'next/router'
+
+const addRecommendationButton = {
+  backgroundColor: 'white'
+};
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -50,7 +55,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function TopBar() {
   const [searchTerm, setSearchTerm] = useState("");
-
+  const router = useRouter();
   const onKeyDown = (e) => {
     if (e.key === "Enter") {
       window.location.href = setURLSearchParams("http://localhost:3000/search-results", `q=${searchTerm}`);
@@ -70,6 +75,11 @@ export default function TopBar() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Magnolia Recommends
           </Typography>
+          {!router.asPath.includes('newRecommendation') &&
+            <Button style={addRecommendationButton} size="medium" href={"newRecommendation"}>
+              Give your recommendation
+            </Button>
+          }
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
