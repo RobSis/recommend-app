@@ -1,4 +1,4 @@
-const HOST = 'https://author-onehob4efwibvpms.saas.magnolia-cloud.com';
+const HOST = process.env.NEXT_PUBLIC_MGNL_HOST;
 
 const GENRES_URL = HOST + '/.rest/delivery/genres/v1';
 const MEDIA_TYPES_URL = HOST + '/.rest/delivery/types/v1';
@@ -36,6 +36,28 @@ export const mediaTypeByName = (type, dataCallback) => {
 
   });
 };
+
+export const mediaTypeById = async (type, dataCallback) => {
+  try {
+    const mediaTypes = await fetch(MEDIA_TYPES_URL + '?@jcr:uuid=' + type).then(res => res.json());
+    if (!mediaTypes.results || mediaTypes.results.length !== 1) {
+      console.error("Media type not found or multiple media types found");
+    } else {
+      dataCallback(mediaTypes.results[0]);
+    }
+  } catch (error) {
+    console.error("Request error", error);
+  }
+};
+
+export const latestByType = async (type, dataCallback) => {
+  try {
+    const recommendations = await fetch(RECOMMENDATIONS_BY_TYPE_URL + '?type=' + type + '&orderBy=mgnl:created').then(res => res.json());
+    dataCallback(recommendations.results);
+  } catch (error) {
+    console.error("Request error", error);
+  }
+}
 
 export const recommendationsByTypeData = async (type, dataCallback) => {
   try {

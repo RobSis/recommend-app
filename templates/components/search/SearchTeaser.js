@@ -8,7 +8,7 @@ export default function SearchTeaser({ item }) {
             <CardMedia
                 component="img"
                 height="140"
-                image={item.image['@link']}
+                image={process.env.NEXT_PUBLIC_MGNL_HOST + item.image['@link']}
                 alt={item.image['@name']}
             />
             <CardContent>

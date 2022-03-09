@@ -1,0 +1,17 @@
+label: Latest
+form:
+  properties:
+    title:
+      i18n: true
+      $type: textField
+    limit:
+      $type: textField
+      type: java.lang.Long
+      converterClass: com.vaadin.data.converter.StringToLongConverter
+    type:
+      $type: comboBoxField
+      multiselect: false
+      datasource:
+        $type: jcrDatasource
+        workspace: types
+

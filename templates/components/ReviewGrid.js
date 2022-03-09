@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Grid } from '@mui/material';
-// import Teaser from '../components/Teaser';
 import SearchTeaser from "./search/SearchTeaser";
 
 export default function ReviewGrid(props) {

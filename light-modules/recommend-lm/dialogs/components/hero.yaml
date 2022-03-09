@@ -1,0 +1,12 @@
+label: Hero
+form:
+  properties:
+    title:
+      i18n: true
+      $type: textField
+    description:
+      i18n: true
+      $type: richTextField
+    image:
+      label: Select image
+      $type: damLinkField

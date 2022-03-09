@@ -9,8 +9,6 @@ areas:
   main:
     title: Main
     availableComponents:
-      title:
-        id: recommend-lm:components/reviewgrid
       searchResults:
         id: recommend-lm:components/search/results
       mediaTypeData:
@@ -19,3 +17,7 @@ areas:
         id: recommend-lm:components/mediaType/list
       recommendationData:
         id: recommend-lm:components/recommendation/data
+      hero:
+        id: recommend-lm:components/hero
+      latest:
+        id: recommend-lm:components/latest
