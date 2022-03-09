@@ -12,25 +12,32 @@ export default function SearchTeaser({ item }) {
                 alt={item.image['@name']}
             />
             <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
+                <Typography gutterBottom variant="h4" component="div">
                     {item.name}
                 </Typography>
                 {/* <Typography variant="body2" color="text.secondary" dangerouslySetInnerHTML={createMarkup(item.description)} /> */}
             
-                <Typography>
+                <Typography  variant="h6">
                     {item.type.name}
                 </Typography>
 
-                <Typography>
-                {item.genres && item.genres.map((genre) => {
+                <Typography component="div">
+                {item.genres && item.genres.map((genre, index) => {
                         return (
-                          <div key={genre.id}>
+                          <div key={index}>
                               {genre.name}
                           </div>
                         )}
                 )}
                 </Typography>
 
+                <Typography>
+                    -
+                </Typography>
+
+                <Typography>
+                    Recommended by {item.user}
+                </Typography>
                
             </CardContent>
             <CardActions>

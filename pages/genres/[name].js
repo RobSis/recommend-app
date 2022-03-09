@@ -2,6 +2,7 @@ import * as React from 'react';
 import {useEffect, useState} from 'react';
 import {Link, Typography} from '@mui/material';
 import {useRouter} from "next/router";
+import SearchTeaser from "../../templates/components/search/SearchTeaser";
 
 const defaultBaseUrl = process.env.NEXT_PUBLIC_MGNL_HOST;
 
@@ -21,9 +22,11 @@ export default function Genre() {
     }
 
     const fetchRecommendations = async () => {
-        const url = `${defaultBaseUrl}/.rest/delivery/recommendations/v1/?genre=${genre['@id']}`;
+        const url = `${defaultBaseUrl}/.rest/delivery/recommendations/v1/?genres=${genre['@id']}`;
+        console.log("genres:" + url)
         const response = await fetch(url);
         const json = await response.json();
+        //console.log("res:" + JSON.stringify(json.results,null,2))
         setRecommendations(json.results);
     }
 
@@ -52,12 +55,13 @@ export default function Genre() {
             </Typography>
             {recommendations && recommendations.length > 0 ? (
                 recommendations.map((item, index) => {
-                    return <Link key={index} href={"/detail?id=" + item['@id']}>
-                        {item.name}
-                    </Link>
+                    return (
+                         <SearchTeaser item={item} key={index} /> 
+                    //<div>{item.name}</div>
+                    )
                 })
             ) : (
-                'Nothing to show.'
+                'There are no recommendations in this genre.'
             )}
         </>
     );

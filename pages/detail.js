@@ -27,7 +27,7 @@ export async function getServerSideProps(context) {
   };
 }
 
-export default function Detail({ id, name, description, image, type = {name: 'default'}, genres, link = 'default' }) {
+export default function Detail({ id, name, description, image, user, type = {name: 'default'}, genres, link = 'default' }) {
     return (
         <Card>
             <CardMedia
@@ -38,26 +38,36 @@ export default function Detail({ id, name, description, image, type = {name: 'de
             />
 
             <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
+                <Typography gutterBottom variant="h3" component="div">
                     {name}
                 </Typography>
 
-                <Button size="small" href={"mediaType?type=" + type.name}>
+                <Button size="medium"  href={"mediaType?type=" + type.name}>
                     {type.name}
                 </Button>
 
                 <Typography></Typography>
 
-                {genres.map((genre) => {
+                {genres.map((genre, index) => {
                         return (
-                          <Button size="small" href={"genres/" + genre.name} key={genre.id}>
+                          <Button size="small" href={"genres/" + genre.name} key={index}>
                               {genre.name}
                           </Button>
                         )}
                 )}
 
+                
+
                 <Typography variant="body2" color="text.secondary" component="div" dangerouslySetInnerHTML={{__html:description}}>
               
+                </Typography>
+
+                <Typography>
+                    -
+                </Typography>
+
+                <Typography>
+                    Recommended by {user}
                 </Typography>
 
             </CardContent>
