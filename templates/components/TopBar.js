@@ -1,15 +1,11 @@
 import * as React from 'react';
 import { useState } from 'react';
 import { alpha, styled } from '@mui/material/styles';
-import { AppBar, Box, InputBase, Toolbar, Typography, Button } from '@mui/material';
+import { AppBar, Box, InputBase, Toolbar, Typography, Button, IconButton } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import SearchIcon from '@mui/icons-material/Search';
 import { setURLSearchParams } from "../../utils";
 import { useRouter } from 'next/router'
-
-const addRecommendationButton = {
-  backgroundColor: 'white'
-};
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -71,12 +67,14 @@ export default function TopBar() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          <HomeIcon sx={{ mr: 2 }} />
+          <IconButton href="/" rel="noopener noreferrer">
+            <HomeIcon style={{ fill: 'white' }} sx={{ mr: 1, ml: 1 }} />
+          </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Magnolia Recommends
           </Typography>
           {!router.asPath.includes('newRecommendation') &&
-            <Button style={addRecommendationButton} size="medium" href={"newRecommendation"}>
+            <Button style={{ backgroundColor: 'white' }} size="medium" href={"newRecommendation"}>
               Give your recommendation
             </Button>
           }
