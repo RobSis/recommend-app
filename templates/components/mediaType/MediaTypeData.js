@@ -4,7 +4,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { mediaTypeByName } from "../../src/api";
+import { mediaTypeByName } from "../../../src/api";
 
 export default function MediaTypeData() {
   const [mediaType, setMediaType] = useState({});

@@ -14,6 +14,8 @@ areas:
       searchResults:
         id: recommend-lm:components/search/results
       mediaTypeData:
-        id: recommend-lm:components/mediaTypeData
+        id: recommend-lm:components/mediaType/data
       mediaTypeList:
-        id: recommend-lm:components/mediaTypeList
+        id: recommend-lm:components/mediaType/list
+      recommendationData:
+        id: recommend-lm:components/recommendation/data
