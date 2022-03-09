@@ -2,7 +2,7 @@ import React from "react";
 import { FormControl, MenuItem, Select } from "@mui/material";
 import { Controller } from "react-hook-form";
 
-export const InputDropdown = ({ name, control, label, options }) => {
+export const InputDropdown = ({ name, control, label, required, options }) => {
   const generateSingleOptions = () => {
     return options?.map((option) => {
       return (
@@ -21,6 +21,7 @@ export const InputDropdown = ({ name, control, label, options }) => {
           <Select
             value={value}
             onChange={onChange}
+            required={required}
           >
             {generateSingleOptions()}
           </Select>

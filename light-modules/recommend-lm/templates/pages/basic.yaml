@@ -19,5 +19,3 @@ areas:
         id: recommend-lm:components/mediaType/list
       recommendationData:
         id: recommend-lm:components/recommendation/data
-      recommendationComments:
-        id: recommend-lm:components/recommendation/comments

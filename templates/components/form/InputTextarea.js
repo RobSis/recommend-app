@@ -1,8 +1,8 @@
 import React from "react";
 import { Controller } from "react-hook-form";
-import { TextareaAutosize, InputLabel, FormControl } from "@mui/material";
+import { TextareaAutosize, FormControl } from "@mui/material";
 
-export const InputTextarea = ({ name, control, label }) => {
+export const InputTextarea = ({ name, control, label, required }) => {
   return (
     <FormControl fullWidth>
       <label>{label}</label>
@@ -17,6 +17,7 @@ export const InputTextarea = ({ name, control, label }) => {
             minRows={10}
             label={label}
             value={value}
+            required={required}
             variant="outlined"
           />
         )}

@@ -7,7 +7,6 @@ import SearchResults from '../templates/components/search/SearchResults';
 import MediaTypeData from '../templates/components/mediaType/MediaTypeData';
 import MediaTypeList from '../templates/components/mediaType/MediaTypeList';
 import RecommendationData from '../templates/components/recommendation/RecommendationData';
-import RecommendationComments from '../templates/components/recommendation/RecommendationComments';
 
 const nodeName = '/recommend';
 const config = {
@@ -18,7 +17,6 @@ const config = {
     'recommend-lm:components/mediaType/data': MediaTypeData,
     'recommend-lm:components/mediaType/list': MediaTypeList,
     'recommend-lm:components/recommendation/data': RecommendationData,
-    'recommend-lm:components/recommendation/comments': RecommendationComments,
   },
 };
 
