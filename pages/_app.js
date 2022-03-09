@@ -1,6 +1,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import Layout from "../components/layout";
+import './app.css';
 
 export default function MyApp(props) {
   const { Component, pageProps } = props;

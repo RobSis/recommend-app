@@ -82,59 +82,58 @@ export default function RecommendationData() {
 
   return (
     <div>
-      <div><Report sx={{ mr: 2 }} />NOT WORKING YET !!<Report sx={{ ml: 2 }} /></div>
-      <div>This is a place to share some recommendations with your fellow Magnolians. Be sure to include not just what it is - but why you like it</div>
+      <h2 style={{ textAlign: 'center' }}><Report sx={{ mr: 2 }} />NOT WORKING YET !!<Report sx={{ ml: 2 }} /></h2>
+      <h3 style={{ textAlign: 'justify' }}>This is a place to share some recommendations with your fellow Magnolians. Be sure to include not just what it is - but why you like it</h3>
       <div>
         <form>
-          <br />
           <InputText required name={"name"} control={control} label={"Name"} />
-          <br />
-          <label htmlFor="image">
-            <Input accept="image/*" id="image" multiple type="file" />
-            <Button variant="contained" component="span">
-              Upload cover
-            </Button>
-          </label>
-          <br />
+          <div style={{textAlign: 'center'}}>
+            <label htmlFor="image">
+              <Input accept="image/*" id="image" multiple type="file" />
+              <Button variant="contained" component="span">
+                Upload cover
+              </Button>
+            </label>
+          </div>
           <InputTextarea required name={"description"} control={control} label={"Description"} />
-          <br />
           <InputDropdown required name={"type"} control={control} label={"Media type"} options={mediaTypeList} />
-          <br />
-          <FormControl sx={{ m: 1, width: 300 }}>
-            <InputLabel id="genres-label">Genres</InputLabel>
-            <Select
-              labelId="genres-label"
-              id="genres"
-              multiple={true}
-              value={genresList}
-              onChange={handleGenresChange}
-              input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
-              renderValue={(selected) => (
-                <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
-                  {selected.map((value) => (
-                    <Chip key={value} label={genresSourceMap.get(value)} />
-                  ))}
-                </Box>
-              )}
-              MenuProps={MenuProps}
-            >
-              {genresSourceList.map((genre) => (
-                <MenuItem
-                  key={genre.value}
-                  value={genre.value}
-                  style={getStyles(genre.value, genresList, theme)}
-                >
-                  {genre.label}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-          <br />
+          <div>
+            <FormControl fullWidth>
+              <InputLabel id="genres-label">Genres</InputLabel>
+              <Select
+                labelId="genres-label"
+                id="genres"
+                multiple={true}
+                value={genresList}
+                onChange={handleGenresChange}
+                input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
+                renderValue={(selected) => (
+                  <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+                    {selected.map((value) => (
+                      <Chip key={value} label={genresSourceMap.get(value)} />
+                    ))}
+                  </Box>
+                )}
+                MenuProps={MenuProps}
+              >
+                {genresSourceList.map((genre) => (
+                  <MenuItem
+                    key={genre.value}
+                    value={genre.value}
+                    style={getStyles(genre.value, genresList, theme)}
+                  >
+                    {genre.label}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </div>
           <InputText name={"link"} control={control} label={"Link"} />
-          <br />
           <RecommendationComment control={control} />
-          <Button onClick={handleSubmit(onSubmit)}>Submit</Button>
-          <Button onClick={() => reset()} variant={"outlined"}>Reset</Button>
+          <div style={{textAlign: 'right', marginTop: '15px'}}>
+            <Button onClick={handleSubmit(onSubmit)}>Submit</Button>
+            <Button onClick={() => reset()} variant={"outlined"}>Reset</Button>
+          </div>
         </form>
       </div>
     </div>

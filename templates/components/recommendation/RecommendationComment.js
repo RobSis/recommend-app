@@ -6,13 +6,10 @@ import { RatingComponent } from "../form/RatingComponent";
 
 export default function RecommendationComment({ control }) {
   return (
-    <div>
-      User's review:
+    <div className="withBorder comments">
+      <span>User's review: <RatingComponent name={"rating"} label={"Rating"} control={control} /></span>
       <div>
-        <RatingComponent name={"rating"} label={"Rating"} control={control} />
-        <br />
         <InputText name={"commentingUser"} control={control} label={"User"} />
-        <br />
         <InputTextarea name={"comment"} control={control} label={"Comment"} />
       </div>
     </div>
