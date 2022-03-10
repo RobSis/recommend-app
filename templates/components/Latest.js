@@ -25,7 +25,7 @@ export default function Latest(props) {
         { title }
       </Typography>
       {recommendations && <ReviewGrid recommendations={recommendations} />}
-      <Button size="small" href={`/mediaType?type=${mediaType['@name']}`}>
+      <Button size="small" href={`/mediaType?type=${mediaType['name']}`}>
         See All
       </Button>
     </Box>
