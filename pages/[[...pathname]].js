@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { EditablePage } from '@magnolia/react-editor';
-import { languages, getCurrentLanguage } from '../utils';
 import Basic from '../templates/pages/Basic';
 import ReviewGrid from '../templates/components/ReviewGrid';
 import MediaTypeData from '../templates/components/mediaType/MediaTypeData';
@@ -28,13 +27,13 @@ const pagesApi = defaultBaseUrl + '/.rest/delivery/pages/v1';
 const templateAnnotationsApi = defaultBaseUrl + '/.rest/template-annotations/v1';
 
 export async function getServerSideProps(context) {
-  const resolvedUrl = context.resolvedUrl;
-  const currentLanguage = getCurrentLanguage(resolvedUrl);
-  const isDefaultLanguage = currentLanguage === languages[0];
-  let props = {
-    basename: isDefaultLanguage ? '' : '/' + currentLanguage,
+  const isPagesApp = context.query?.mgnlPreview || null;
+    let props = {
+    isPagesApp,
+    isPagesAppEdit: isPagesApp === 'false',
     pagePath: nodeName + context.resolvedUrl.replace(new RegExp('.*' + nodeName), ''), // Find out page path to fetch from Magnolia
   };
+  global.mgnlInPageEditor = props.isPagesAppEdit;
 
   // Fetching page content
   const pagesRes = await fetch(pagesApi + props.pagePath);
@@ -47,7 +46,7 @@ export async function getServerSideProps(context) {
 
 export default function Pathname(props) {
   const [templateAnnotations, setTemplateAnnotations] = useState();
-  const { page, pagePath } = props;
+  const { isPagesApp, isPagesAppEdit, page, pagePath } = props;
 
   // Fetch template annotations only inside Magnolia WYSIWYG
   useEffect(() => {
@@ -58,11 +57,17 @@ export default function Pathname(props) {
       setTemplateAnnotations(templateAnnotationsJson);
     }
 
-    fetchTemplateAnnotations();
-  }, [pagePath]);
+    if (isPagesApp) fetchTemplateAnnotations();
+  }, [isPagesApp, pagePath]);
+
+  const shouldRenderEditablePage = page && (isPagesApp ? templateAnnotations : true);
 
   // In Pages app wait for template annotations before rendering EditablePage
   return (
-    <EditablePage content={page} config={config} templateAnnotations={templateAnnotations} />
+    <>
+      {shouldRenderEditablePage && (
+        <EditablePage content={page} config={config} templateAnnotations={templateAnnotations} />
+      )}
+    </>
   );
 }
