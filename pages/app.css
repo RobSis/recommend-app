@@ -14,3 +14,6 @@ div.halfSize {
     width: 50%;
     display: inline-block;
 }
+html > body {
+    background-color: #eeeeee;
+}

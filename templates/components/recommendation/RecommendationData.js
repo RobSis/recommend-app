@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useTheme } from '@mui/material/styles';
 import { genres, mediaTypes } from "../../../src/api";
-import { Button, Input, FormControl, InputLabel, Select, OutlinedInput, MenuItem, Box, Chip } from "@mui/material";
+import { Card, CardContent, Button, Input, FormControl, InputLabel, Select, OutlinedInput, MenuItem, Box, Chip } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { InputText } from "../form/InputText";
 import { InputTextarea } from "../form/InputTextarea";
@@ -81,7 +81,7 @@ export default function RecommendationData() {
   }, []);
 
   return (
-    <div>
+    <Card><CardContent>
       <h2 style={{ textAlign: 'center' }}><Report sx={{ mr: 2 }} />NOT WORKING YET !!<Report sx={{ ml: 2 }} /></h2>
       <h2 style={{ textAlign: 'center' }}><Report sx={{ mr: 2 }} />DON'T SUBMIT ANYTHING.<Report sx={{ ml: 2 }} /></h2>
       <h2 style={{ textAlign: 'center' }}><Report sx={{ mr: 2 }} />We'll let ya know when its ready.<Report sx={{ ml: 2 }} /></h2>
@@ -140,6 +140,6 @@ export default function RecommendationData() {
           </div>
         </form>
       </div>
-    </div>
+      </CardContent></Card>
   );
 }
