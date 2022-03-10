@@ -2,7 +2,6 @@ import * as React from 'react';
 import { useState } from 'react';
 import { alpha, styled } from '@mui/material/styles';
 import { AppBar, Box, InputBase, Toolbar, Typography, Button, IconButton } from '@mui/material';
-import HomeIcon from '@mui/icons-material/Home';
 import SearchIcon from '@mui/icons-material/Search';
 import { setURLSearchParams } from "../../utils";
 import { useRouter } from 'next/router'
@@ -54,7 +53,7 @@ export default function TopBar() {
   const router = useRouter();
   const onKeyDown = (e) => {
     if (e.key === "Enter") {
-      window.location.href = setURLSearchParams("http://localhost:3000/search-results", `q=${searchTerm}`);
+      router.push(setURLSearchParams("/search-results", `q=${searchTerm}`));
     }
   }
 
