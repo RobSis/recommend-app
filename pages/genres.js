@@ -34,7 +34,7 @@ export default function BasicGrid({results}) {
                                         </Typography>
                                     </CardContent>
                                     <CardActions>
-                                        <Button size="small" href={`/genres/${item.name}`}>
+                                        <Button size="small" href={`/genres${item['@path']}`}>
                                             See recommendations
                                         </Button>
                                     </CardActions>

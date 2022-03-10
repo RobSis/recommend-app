@@ -55,7 +55,7 @@ export default function Detail({ id, name, description, image, user, type = {nam
 
                 {genres.map((genre, index) => {
                         return (
-                          <Button size="large" href={"genres/" + genre.name} key={index}>
+                          <Button size="large" href={"genres" + genre['@path']} key={index}>
                               {genre.name}
                           </Button>
                         )}

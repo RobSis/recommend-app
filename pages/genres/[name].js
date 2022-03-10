@@ -5,10 +5,13 @@ import ReviewGrid from '../../templates/components/ReviewGrid';
 const defaultBaseUrl = process.env.NEXT_PUBLIC_MGNL_HOST;
 
 const fetchGenre = async (name) => {
-    const url = `${defaultBaseUrl}/.rest/delivery/genres/v1/?@name=${name}`;
+    console.log("fetchGenre path:" + name)
+    const url = `${defaultBaseUrl}/.rest/delivery/genres/v1/${name}`;
+    //const url = `${defaultBaseUrl}/.rest/delivery/genres/v1/Science-Fiction`;
+    console.log("genre: " + url)
     const response = await fetch(url);
     const json = await response.json();
-    return json.results[0];
+    return json;
 }
 
 const fetchRecommendations = async (genre) => {
@@ -22,7 +25,8 @@ export async function getServerSideProps(context) {
     let props = {};
 
     const name = context.query.name;
-    props.genre = await fetchGenre(name);
+    const decodedName = decodeURI(name)
+    props.genre = await fetchGenre(decodedName);
     props.results = await fetchRecommendations(props.genre);
 
     return {
