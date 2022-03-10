@@ -10,3 +10,7 @@ div.withBorder {
 div.comments {
     margin-top: 15px;
 }
+div.halfSize {
+    width: 50%;
+    display: inline-block;
+}

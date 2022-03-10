@@ -67,29 +67,45 @@ export default function TopBar() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton href="/" rel="noopener noreferrer">
-            <HomeIcon style={{ fill: 'white' }} sx={{ mr: 1, ml: 1 }} />
-          </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Magnolia Recommends
-          </Typography>
-          {!router.asPath.includes('newRecommendation') &&
-            <Button style={{ backgroundColor: 'white' }} size="medium" href={"newRecommendation"}>
-              Give your recommendation
-            </Button>
-          }
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
-              onKeyDown={onKeyDown}
-              onChange={onSearchTermChange}
-              value={searchTerm}
-            />
-          </Search>
+          <div className='halfSize'>
+            <IconButton href="/" rel="noopener noreferrer" style={{ backgroundColor: 'transparent' }} >
+              <Box
+                component="img"
+                alt="Magnolia"
+                src="https://www.magnolia-cms.com/.resources/corpweb2021/webresources/img/magnolia-logo.svg"
+              />
+              <Typography variant="h4" component="div" style={{
+                paddingTop: 0,
+                paddingBottom: 10
+              }}>
+                Recommends
+              </Typography>
+            </IconButton>
+          </div>
+          <div className='halfSize'>
+            {!router.asPath.includes('newRecommendation') &&
+              <div className='halfSize'>
+                <Button style={{ backgroundColor: 'white', marginRight: 20 }} size="medium" href={"newRecommendation"}>
+                  Give your recommendation
+                </Button>
+              </div>
+            }
+            <div className='halfSize'>
+              <Search sx={{ textAlign: 'right' }}>
+                <SearchIconWrapper style={{ width: '10%' }}>
+                  <SearchIcon />
+                </SearchIconWrapper>
+                <StyledInputBase
+                  placeholder="Search…"
+                  inputProps={{ 'aria-label': 'search' }}
+                  onKeyDown={onKeyDown}
+                  onChange={onSearchTermChange}
+                  value={searchTerm}
+                  style={{ width: '90%' }}
+                />
+              </Search>
+            </div>
+          </div>
         </Toolbar>
       </AppBar>
     </Box>
