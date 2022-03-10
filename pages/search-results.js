@@ -1,10 +1,8 @@
 import * as React from 'react';
-import {useEffect, useState} from 'react';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
-import {setURLSearchParams} from "../utils";
-import SearchTeaser from "../templates/components/search/SearchTeaser";
-import {Typography} from "@mui/material";
+import { useEffect, useState } from 'react';
+import { setURLSearchParams } from "../utils";
+import { Typography } from "@mui/material";
+import ReviewGrid from '../templates/components/ReviewGrid';
 
 const defaultBaseUrl = process.env.NEXT_PUBLIC_MGNL_HOST;
 
@@ -37,21 +35,7 @@ export default function BasicGrid() {
             >
                 Search Results
             </Typography>
-            <Box sx={{flexGrow: 1}}>
-                {results && results.length > 0 ? (
-                    <Grid container spacing={2}>
-                        {results.map((item, index) => {
-                            return (
-                                <Grid item xs={12} key={index}>
-                                    <SearchTeaser item={item}/>
-                                </Grid>
-                            )
-                        })}
-                    </Grid>
-                ) : (
-                    "Nothing to display."
-                )}
-            </Box>
+            <ReviewGrid recommendations={results} />
         </>
     );
 }
