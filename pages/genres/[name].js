@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {useEffect, useState} from 'react';
-import {Link, Typography} from '@mui/material';
-import {useRouter} from "next/router";
-import SearchTeaser from "../../templates/components/search/SearchTeaser";
+import { useEffect, useState } from 'react';
+import { Typography } from '@mui/material';
+import { useRouter } from "next/router";
+import ReviewGrid from '../../templates/components/ReviewGrid';
 
 const defaultBaseUrl = process.env.NEXT_PUBLIC_MGNL_HOST;
 
@@ -54,12 +54,7 @@ export default function Genre() {
                 {genre && genre.name}
             </Typography>
             {recommendations && recommendations.length > 0 ? (
-                recommendations.map((item, index) => {
-                    return (
-                         <SearchTeaser item={item} key={index} /> 
-                    //<div>{item.name}</div>
-                    )
-                })
+                <ReviewGrid recommendations={recommendations} />
             ) : (
                 'There are no recommendations in this genre.'
             )}
