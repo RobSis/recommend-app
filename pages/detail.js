@@ -32,17 +32,22 @@ export default function Detail({ id, name, description, image, user, type = {nam
         <Card>
             <CardMedia
                 component="img"
-                height="140"
                 image={image['@link']}
                 alt={image['@name']}
             />
+
+            {/* <img src={image['@link']}
+                alt={image['@name']}
+                style={{maxHeight: "100px"}}
+                /> */}
+
 
             <CardContent>
                 <Typography gutterBottom variant="h3" component="div">
                     {name}
                 </Typography>
 
-                <Button size="medium"  href={"mediaType?type=" + type.name}>
+                <Button size="large"  href={"mediaType?type=" + type.name}>
                     {type.name}
                 </Button>
 
@@ -50,7 +55,7 @@ export default function Detail({ id, name, description, image, user, type = {nam
 
                 {genres.map((genre, index) => {
                         return (
-                          <Button size="small" href={"genres/" + genre.name} key={index}>
+                          <Button size="large" href={"genres/" + genre.name} key={index}>
                               {genre.name}
                           </Button>
                         )}
@@ -73,7 +78,7 @@ export default function Detail({ id, name, description, image, user, type = {nam
             </CardContent>
 
             <CardActions>
-                <Button size="small" href={link}>
+                <Button size="large" variant="contained" href={link}>
                     Check it out
                 </Button>
             </CardActions>

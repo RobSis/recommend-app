@@ -14,7 +14,14 @@ const theme = createTheme({
       main: red.A400,
     },
   },
-  spacing: 4
+  spacing: 4,
+  typography: {
+    // Tell MUI what's the font-size on the html element is.
+    htmlFontSize: 20,
+    body2: {
+      fontSize: 14,
+    },
+  },
 });
 
 export default theme;

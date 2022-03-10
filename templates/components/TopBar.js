@@ -85,7 +85,7 @@ export default function TopBar() {
             {!router.asPath.includes('newRecommendation') &&
               <div className='halfSize'>
                 <Button style={{ backgroundColor: 'white', marginRight: 20 }} size="medium" href={"newRecommendation"}>
-                  Give your recommendation
+                  I Recommend
                 </Button>
               </div>
             }

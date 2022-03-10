@@ -83,7 +83,11 @@ export default function RecommendationData() {
   return (
     <div>
       <h2 style={{ textAlign: 'center' }}><Report sx={{ mr: 2 }} />NOT WORKING YET !!<Report sx={{ ml: 2 }} /></h2>
-      <h3 style={{ textAlign: 'justify' }}>This is a place to share some recommendations with your fellow Magnolians. Be sure to include not just what it is - but why you like it</h3>
+      <h2 style={{ textAlign: 'center' }}><Report sx={{ mr: 2 }} />DON'T SUBMIT ANYTHING.<Report sx={{ ml: 2 }} /></h2>
+      <h2 style={{ textAlign: 'center' }}><Report sx={{ mr: 2 }} />We'll let ya know when its ready.<Report sx={{ ml: 2 }} /></h2>
+      <h3 style={{ textAlign: 'justify' }}>
+        This is a place to share some recommendations with your fellow Magnolians. 
+      Be sure to include not just what it is - but why you like it</h3>
       <div>
         <form>
           <InputText required name={"name"} control={control} label={"Name"} />

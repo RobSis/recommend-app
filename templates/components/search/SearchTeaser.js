@@ -6,7 +6,7 @@ export default function SearchTeaser({ item }) {
         <Card>
             <CardMedia
                 component="img"
-                height="140"
+                height="220"
                 image={item.image['@link']}
                 alt={item.image['@name']}
             />
@@ -40,7 +40,7 @@ export default function SearchTeaser({ item }) {
                
             </CardContent>
             <CardActions>
-                <Button size="small" href={`/detail?id=${item['@id']}`}>
+                <Button size="small" variant="contained" href={`/detail?id=${item['@id']}`}>
                     Learn More
                 </Button>
             </CardActions>
