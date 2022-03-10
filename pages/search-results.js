@@ -1,28 +1,25 @@
 import * as React from 'react';
-import { useEffect, useState } from 'react';
 import { setURLSearchParams } from "../utils";
 import { Typography } from "@mui/material";
 import ReviewGrid from '../templates/components/ReviewGrid';
 
 const defaultBaseUrl = process.env.NEXT_PUBLIC_MGNL_HOST;
 
-export default function BasicGrid() {
+export async function getServerSideProps(context) {
+  let props = {};
 
-    const [results, setResults] = useState([]);
+  const term = context.query.q
+  const url = setURLSearchParams(`${defaultBaseUrl}/.rest/delivery/recommendations/v1`, `q=${term}`)
+  const response = await fetch(url);
+  const json = await response.json();
+  props.results = json.results;
 
-    const fetchItems = async (term) => {
-        const url = setURLSearchParams(`${defaultBaseUrl}/.rest/delivery/recommendations/v1`, `q=${term}`)
-        const response = await fetch(url);
-        const json = await response.json();
-        setResults(json.results);
-    }
+  return {
+    props,
+  };
+}
 
-    useEffect(() => {
-        const urlParams = new URLSearchParams(window.location.search);
-        const term = urlParams.get('q');
-
-        fetchItems(term);
-    }, []);
+export default function BasicGrid({results}) {
 
     return (
         <>

@@ -1,47 +1,36 @@
 import * as React from 'react';
-import { useEffect, useState } from 'react';
 import { Typography } from '@mui/material';
-import { useRouter } from "next/router";
 import ReviewGrid from '../../templates/components/ReviewGrid';
 
 const defaultBaseUrl = process.env.NEXT_PUBLIC_MGNL_HOST;
 
-export default function Genre() {
-    const router = useRouter();
-    const { name } = router.query;
+const fetchGenre = async (name) => {
+    const url = `${defaultBaseUrl}/.rest/delivery/genres/v1/?@name=${name}`;
+    const response = await fetch(url);
+    const json = await response.json();
+    return json.results[0];
+}
 
-    const [genre, setGenre] = useState(null);
-    const [recommendations, setRecommendations] = useState([]);
+const fetchRecommendations = async (genre) => {
+    const url = `${defaultBaseUrl}/.rest/delivery/recommendations/v1/?genres=${genre['@id']}`;
+    const response = await fetch(url);
+    const json = await response.json();
+    return json.results;
+}
 
-    const fetchGenre = async () => {
+export async function getServerSideProps(context) {
+    let props = {};
 
-        const url = `${defaultBaseUrl}/.rest/delivery/genres/v1/?@name=${name}`;
-        const response = await fetch(url);
-        const json = await response.json();
-        setGenre(json.results.pop());
-    }
+    const name = context.query.name;
+    props.genre = await fetchGenre(name);
+    props.results = await fetchRecommendations(props.genre);
 
-    const fetchRecommendations = async () => {
-        const url = `${defaultBaseUrl}/.rest/delivery/recommendations/v1/?genres=${genre['@id']}`;
-        console.log("genres:" + url)
-        const response = await fetch(url);
-        const json = await response.json();
-        //console.log("res:" + JSON.stringify(json.results,null,2))
-        setRecommendations(json.results);
-    }
+    return {
+        props,
+    };
+}
 
-    useEffect(() => {
-        if (name) {
-            fetchGenre();
-        }
-    }, [name]);
-
-    useEffect(() => {
-        if (genre) {
-            fetchRecommendations();
-        }
-    }, [genre])
-
+export default function Genre({genre, results}) {
     return (
         <>
             <Typography
@@ -53,8 +42,8 @@ export default function Genre() {
             >
                 {genre && genre.name}
             </Typography>
-            {recommendations && recommendations.length > 0 ? (
-                <ReviewGrid recommendations={recommendations} />
+            {results && results.length > 0 ? (
+                <ReviewGrid recommendations={results} />
             ) : (
                 'There are no recommendations in this genre.'
             )}

@@ -1,25 +1,24 @@
 import * as React from 'react';
-import {useEffect, useState} from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import {Button, Card, CardActions, CardContent, Typography} from "@mui/material";
 
 const defaultBaseUrl = process.env.NEXT_PUBLIC_MGNL_HOST;
 
-export default function BasicGrid() {
+export async function getServerSideProps(context) {
+    let props = {};
 
-    const [results, setResults] = useState([]);
+    const url = `${defaultBaseUrl}/.rest/delivery/genres/v1`;
+    const response = await fetch(url);
+    const json = await response.json();
+    props.results = json.results;
 
-    const fetchItems = async () => {
-        const url = `${defaultBaseUrl}/.rest/delivery/genres/v1`;
-        const response = await fetch(url);
-        const json = await response.json();
-        setResults(json.results);
-    }
+    return {
+        props,
+    };
+}
 
-    useEffect(() => {
-        fetchItems();
-    }, []);
+export default function BasicGrid({results}) {
 
     return (
         <Box sx={{flexGrow: 1}}>
