@@ -3,7 +3,6 @@ import { EditablePage } from '@magnolia/react-editor';
 import { languages, getCurrentLanguage } from '../utils';
 import Basic from '../templates/pages/Basic';
 import ReviewGrid from '../templates/components/ReviewGrid';
-import SearchResults from '../templates/components/search/SearchResults';
 import MediaTypeData from '../templates/components/mediaType/MediaTypeData';
 import MediaTypeList from '../templates/components/mediaType/MediaTypeList';
 import RecommendationData from '../templates/components/recommendation/RecommendationData';
@@ -15,7 +14,6 @@ const config = {
   componentMappings: {
     'recommend-lm:pages/basic': Basic,
     'recommend-lm:components/reviewgrid': ReviewGrid,
-    'recommend-lm:components/search/results': SearchResults,
     'recommend-lm:components/mediaType/data': MediaTypeData,
     'recommend-lm:components/mediaType/list': MediaTypeList,
     'recommend-lm:components/recommendation/data': RecommendationData,
