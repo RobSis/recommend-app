@@ -78,7 +78,7 @@ export default function Detail({ id, name, description, image, user, type = {nam
             </CardContent>
 
             <CardActions>
-                <Button size="large" variant="contained" href={link}>
+                <Button size="large" variant="contained" href={link} target="_blank">
                     Check it out
                 </Button>
             </CardActions>
