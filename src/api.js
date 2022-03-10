@@ -52,7 +52,7 @@ export const mediaTypeById = async (type, dataCallback) => {
 
 export const latestByType = async (type, dataCallback) => {
   try {
-    const recommendations = await fetch(RECOMMENDATIONS_BY_TYPE_URL + '?type=' + type + '&orderBy=mgnl:created').then(res => res.json());
+    const recommendations = await fetch(RECOMMENDATIONS_BY_TYPE_URL + '?type=' + type + '&orderBy=mgnl:created%20desc').then(res => res.json());
     dataCallback(recommendations.results);
   } catch (error) {
     console.error("Request error", error);
