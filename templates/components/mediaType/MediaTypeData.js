@@ -14,15 +14,15 @@ export default function MediaTypeData() {
 
   return (
     <>
-      {mediaType.name ? <Card sx={{ maxWidth: 345 }}>
+      {mediaType.name ? <Card sx={{ maxWidth: 345, textAlign: 'center' }}>
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {mediaType.name}
-          </Typography>
           {mediaTypeLogo && <CardMedia>
-            <img src={mediaTypeLogo} alt={mediaType.name} style={{ height: 150 }} />
+            <img src={mediaTypeLogo} alt={mediaType.name} style={{ height: 200 }} />
           </CardMedia>
           }
+          <Typography gutterBottom variant="h2" component="div">
+            {mediaType.name}
+          </Typography>
         </CardContent>
       </Card>
         : <div>Media type not found: {query.type}</div>}
