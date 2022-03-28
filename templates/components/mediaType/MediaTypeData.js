@@ -12,6 +12,7 @@ export default function MediaTypeData() {
   }, []);
   const mediaTypeLogo = mediaType.icon ? mediaType.icon['@link'] : 'images/default.svg';
 
+  
   return (
     <>
       {mediaType.name ? <Card sx={{ maxWidth: 345, textAlign: 'center' }}>
