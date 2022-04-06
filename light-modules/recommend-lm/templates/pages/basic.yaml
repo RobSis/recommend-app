@@ -1,6 +1,6 @@
 class: info.magnolia.rendering.spa.renderer.SpaRenderableDefinition
 visible: true
-baseUrl: http://{{@path}}
+baseUrl: 'https://{{@path}}'
 routeTemplate: '{{@path}}'
 # dialog: mte:pages/pageProperties
 title: 'Recommend: Basic'
